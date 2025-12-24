@@ -1,6 +1,6 @@
 # Privacy Policy for AntiStrike
 
-**Effective Date: December 24, 2024**
+**Effective Date: December 24, 2025**
 
 AntiStrike ("we," "our," or "the App") is committed to protecting your privacy. This Privacy Policy explains how we handle your information.
 
