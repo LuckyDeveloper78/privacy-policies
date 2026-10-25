@@ -37,7 +37,7 @@ If you allow the location permission, the App reads your current position to pro
 - The App itself contains no analytics or advertising SDK and does not track you across other apps or sites.
 
 ### 1.8 Public race results
-To predict finishing times and let users find and compare race performances, the App uses a dataset of **race results already published** by race organisers and timing companies (for example UTMB live results, RaceResult, UltraTiming): runner name, year of birth, gender, nationality, race, time and ranking. The data is used as published; it is not combined with your account data except to match your own results when you ask for them. Signed-in users consult this dataset through the App's comparison and prediction screens; it is cached on the device for that purpose. If you appear in it and object to this use, write to `admin@luckydev.be` (section 6).
+To predict finishing times and let users find and compare race performances, the App uses a dataset of **race results already published** by race organisers and timing companies (for example UTMB live results, RaceResult, UltraTiming): runner name, year of birth, gender, nationality, race, time and ranking. The data is used as published; it is not combined with your account data except to match your own results when you ask for them. Signed-in users consult this dataset only through the App's comparison and prediction screens (race history of a runner for coaches and administrators, race rankings for administrators, finishing-time estimates for everyone): the dataset itself stays on our server (3.5) and is never sent to or stored on your device; each query carries only the name searched and the target race. Since 25 October 2026 the App deletes any copy an earlier version had cached on the device. If you appear in it and object to this use, write to `admin@luckydev.be` (section 6).
 
 ## 2. Why we process your data and on which legal basis (GDPR)
 
@@ -72,7 +72,7 @@ The coach assistant and the plan generator send the data listed in section 1.4 t
 - **Your own API key**: you may enter a personal API key for OpenAI, Anthropic (Claude), Google (Gemini) or DeepSeek. The conversation is then sent from your device directly to that provider under your own account and its terms; our servers do not relay it. The key is stored in your account on our server so that your devices can use it; you can remove it at any time in the App, which deletes it. We recommend a dedicated key with a spending limit.
 
 ### 3.5 Render (synchronisation service)
-Our Garmin/Strava synchronisation service runs on Render.com. It processes your Garmin credentials once (3.2), your Garmin activities, the routes you push, and your Firebase identity token to authenticate the request.
+Our Garmin/Strava synchronisation service runs on Render.com. It processes your Garmin credentials once (3.2), your Garmin activities, the routes you push, and your Firebase identity token to authenticate the request. The same service holds the public race-results dataset (1.8) and answers the App's search, ranking and estimate queries; it receives the name searched, the target race and your identity token, and keeps no log of the queries beyond the provider's standard request logs.
 
 ### 3.6 Route generation and weather (OpenStreetMap ecosystem)
 When you generate a route, the App sends the start point (your position or a saved location) and route parameters, directly from your device, to:
@@ -96,7 +96,7 @@ Google (3.1, 3.4) and Render (3.5) store or process data in the United States. T
 ## 5. Storage, security and retention
 
 - Data in transit is encrypted (HTTPS). Access to the database is governed by Firebase security rules enforcing the visibility described in section 4.
-- The App keeps data on your device: interface state, a cached copy of your data for offline use, the race-results dataset of section 1.8, and your sign-in session. On Android, device backups to your Google account may include this local storage.
+- The App keeps data on your device: interface state, a cached copy of your data for offline use, and your sign-in session. On Android, device backups to your Google account may include this local storage.
 - **Retention**: your data is kept as long as your account exists. Assistant conversations and memory, Garmin tokens and API keys can be deleted by you at any time in the App. Garmin pending multi-factor state is held in memory for at most 10 minutes. Abuse counters are held in memory for at most one day. Service logs are kept for the hosting provider's default period, then deleted.
 - No method of transmission or storage is completely secure; we apply reasonable measures and limit what we keep.
 
