@@ -1,6 +1,6 @@
 # Privacy Policy for InCorporeSano
 
-**Effective date: October 25, 2026** (replaces the version of May 4, 2026)
+**Effective date: October 26, 2026** (replaces the version of October 25, 2026)
 
 InCorporeSano ("the App", "we", "our") is a training-plan, coaching and route-planning application for runners and cyclists, available as a web app at `https://incorporesano.luckydev.be` and as an Android app (package `be.luckydev.incorporesano`). This policy explains which personal data the App processes, why, with which service providers, and what your rights are.
 
@@ -12,6 +12,8 @@ InCorporeSano ("the App", "we", "our") is a training-plan, coaching and route-pl
 - Sign-in with Google (via Firebase Authentication) or with an email address and password.
 - We store your display name, email address, whether the address is verified, your role in the App (runner, coach, admin), and your preferred language.
 - Passwords are handled by Firebase Authentication only; we never see or store them.
+- An account created with an email address and password must verify that address: Firebase Authentication sends a verification email on our behalf, and the App can be used once the link has been opened. An administrator may mark an address verified for a user they know.
+- When an administrator archives an account, its sign-in is disabled on Firebase Authentication; it is enabled again if the account is restored.
 
 ### 1.2 Profile and biometric data (optional)
 Year of birth, sex, height, weight, personal bests and recent best times. They are used to compute training paces and to personalise plans and the coach assistant.
@@ -72,7 +74,7 @@ The coach assistant and the plan generator send the data listed in section 1.4 t
 - **Your own API key**: you may enter a personal API key for OpenAI, Anthropic (Claude), Google (Gemini) or DeepSeek. The conversation is then sent from your device directly to that provider under your own account and its terms; our servers do not relay it. The key is stored in your account on our server so that your devices can use it; you can remove it at any time in the App, which deletes it. We recommend a dedicated key with a spending limit.
 
 ### 3.5 Render (synchronisation service)
-Our Garmin/Strava synchronisation service runs on Render.com. It processes your Garmin credentials once (3.2), your Garmin activities, the routes you push, and your Firebase identity token to authenticate the request. The same service holds the public race-results dataset (1.8) and answers the App's search, ranking and estimate queries; it receives the name searched, the target race and your identity token, and keeps no log of the queries beyond the provider's standard request logs.
+Our Garmin/Strava synchronisation service runs on Render.com. It processes your Garmin credentials once (3.2), your Garmin activities, the routes you push, and your Firebase identity token to authenticate the request; for administrators it also disables or re-enables the sign-in of archived accounts and marks email addresses verified (1.1). The same service holds the public race-results dataset (1.8) and answers the App's search, ranking and estimate queries; it receives the name searched, the target race and your identity token, and keeps no log of the queries beyond the provider's standard request logs.
 
 ### 3.6 Route generation and weather (OpenStreetMap ecosystem)
 When you generate a route, the App sends the start point (your position or a saved location) and route parameters, directly from your device, to:
